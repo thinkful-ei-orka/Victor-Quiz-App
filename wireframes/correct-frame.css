@@ -65,5 +65,10 @@ button[type="submit"] {
   
 input[type="radio"] {
     margin: 0 10px 0 10px;
-  
+}
+
+label[for=answer2] {
+    width: fit-content;
+    height: auto;
+    background-color: lightgreen;
 }
