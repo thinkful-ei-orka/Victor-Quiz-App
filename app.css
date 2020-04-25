@@ -1,5 +1,95 @@
 /* Your styles should be mobile-first and responsive */
+* {
+  box-sizing: border-box;
+} 
 
+body {
+  background-image: url("https://wallpaperaccess.com/full/1547801.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: none;
+}
+ 
+main {
+  padding: 100px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-top: auto;
+}
+
+h1, h2, h3 {
+  color: black;
+  text-align: center;
+}
+
+h1 {
+  font-size: 50px;    
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.js-main-screen {
+  position: relative;
+  padding: 70px 0;
+  border: black solid 3px;
+  border-radius: 20px;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;   
+  background-color: rgb(238, 238, 238);
+  opacity: 85%;
+}
+
+.correct {
+  width: fit-content;
+  height: auto;
+  background-color: lightgreen;
+  position: relative;
+  margin: 0 0 0 0;
+  margin-bottom: 10px;
+}
+
+.incorrect {
+  width: fit-content;
+  height: auto;
+  background-color: lightcoral;
+  position: relative;
+  margin: 0 0 0 0;
+  margin-bottom: 10px;
+}
+
+.js-answer-eval {
+margin-left: 20%;
+margin-right: 20%;
+text-align: center;
+}
+
+button[type="submit"] {
+  display: block;
+  font-size: 25px;
+  color: white;
+  background: black;
+  border: 1px, black, solid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin: 0 10px 0 10px;
+}
 /** 
   * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
   *
