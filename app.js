@@ -95,19 +95,24 @@ function generateQuizQuestion() {
   html = `<section class='js-main-screen'>
             <h2 class='js-question-box'>${store.questions[store.questionNumber].question}</h2>
             <form action='' id='js-answer-form' class='js-answer-box'>`;
-  html += generateQuizCount();
+  
   let i = 1;
   store.questions[store.questionNumber].answers.forEach(quizAnswer => {
     console.log(quizAnswer);
-    html += `<input type="radio" name="answer" id='answer${i}' value='${quizAnswer}'>`;
-    html += `<label for='answer${i}'>${quizAnswer}</label><br><br>`;
-    i++;
-  });
-  html += `<section class='js-answer-eval incorrect'></section>
-          <button type ='submit' class='js-answer-button'>Submit</button>
-          </form>
-          </section>`;
-  return html;
+    html += `<div class='input-container'>
+    <input type="radio" name="answer" id='answer${i}' value='${quizAnswer}'>
+    <label for='answer${i}'>${quizAnswer}</label>
+  </div>`;
+i++;
+})
+
+html += `<section class='js-answer-eval'></section>
+          <button type ='submit' class='js-answer-button'>Submit</button>`
+html += generateQuizCount();          
+html += `</form>
+        </section>`;
+
+return html;
 };
 
 // beautify below this line vvv
@@ -119,41 +124,46 @@ function generateQuizFeedback() {
   html += `<section class='js-main-screen'>
               <h2 class='js-question-box'>${store.questions[store.questionNumber].question}</h2>
               <form action='' id='js-answer-form' class='js-answer-box'>`
-  html += generateQuizCount();
+  
   let i = 1;
   store.questions[store.questionNumber].answers.forEach(quizAnswer => {
-    html += `<input disabled type="radio" name="answer" id='answer${i} value='${quizAnswer}'>`;
+    
     if (quizAnswer != correct && quizAnswer === store.answer) {
       console.log('incorrect flag hit');
       incorrectFlag = !incorrectFlag;
-      html += `<label for='answer${i}' class='incorrect'>${quizAnswer}</label><br><br>`;
+      html += `<div class='input-container incorrect'>`;
     } else {
       if (quizAnswer === correct) {
         console.log('correct flag hit');
-        html += `<label for='answer${i}' class='correct'>${quizAnswer}</label><br><br>`;
-        //store.score++;
-        if (correct === store.answer)
-        store.score++;
+        html += `<div class='input-container correct'>`;
+        if (correct === store.answer) {
+          store.score++;
+        }
       } else {
-        html += `<label for='answer${i}'>${quizAnswer}</label><br><br>`;
+        html += `<div class = 'input-container'>`
       }
     }
+    html += `<input disabled ${store.answer === quizAnswer ? `checked` : ``} type="radio" name="answer" id='answer${i} value='${quizAnswer}'>`;
+    html += `<label for='answer${i}'>${quizAnswer}</label>`;
+    html += `</div>`;
     i++;
   })
+
   if (incorrectFlag) {
-    html += `<section class='js-answer-eval incorrect'>
-    Incorrect! ${store.questions[store.questionNumber].incorrectDesc} ${store.questions[store.questionNumber].factoid}
+    html += `<section class='js-answer-eval incorrect'><strong>
+    Incorrect!</strong> ${store.questions[store.questionNumber].incorrectDesc} ${store.questions[store.questionNumber].factoid}
     </section>`;
-    // ${store.questions[store.questionNumber].incorrectDesc}. ${store.questions[store.questionNumber].factoid}
   } else {
-    html += `<section class='js-answer-eval correct'>
-    Correct! ${store.questions[store.questionNumber].factoid}
+    html += `<section class='js-answer-eval correct'><strong>
+    Correct!</strong> ${store.questions[store.questionNumber].factoid}
     </section>`;
   }
 
-  html += `<button type ='submit' class='js-continue-button'>Continue</button>
-          </form>
+  html += `<button type ='submit' class='js-continue-button'>Continue</button>`;
+  html += generateQuizCount();        
+  html += `</form>
           </section>`;
+
   store.questionNumber++;
   return html;
 }
@@ -169,11 +179,10 @@ function generateQuizCount() {
 function generateTitleScreen(){
 //generate our title screen and restart
   return `<section class = 'js-main-screen'>
-            <h1>Stardew Valley Quiz</h1>
-              <h2>Test your Stardew Valley knowledge with this short quiz!</h2> 
+              <h2>Test your Stardew Valley knowledge with this quiz!</h2> 
               <button type='submit' class = 'js-start-button'>Start!</button>
           </section>`
-}
+};
 
 function generateEndScreen() {
   // generate our quiz results
@@ -198,7 +207,7 @@ function renderQuizScreen() {
   console.log('renderQuizScreen called')
   let generateString = '';
   // title screen // question screen // correct screen // incorrect screen
-  if (store.quizStarted === false) {
+  if (!store.quizStarted) {
     generateString = generateTitleScreen();
     } else if (store.questionNumber >= store.questions.length) {
     generateString = generateEndScreen();
