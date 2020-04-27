@@ -1,11 +1,9 @@
-'Stardew Valley Quiz App' 
+# Stardew Valley Quiz App
 
-Programmed by Thomas Davis and Victor Jarvis for Thinkful's Software Engineering Immersion Program, using HTML, CSS, Javascript, and jQuery.
+Programmed by **Thomas Davis** and **Victor Jarvis** for Thinkful's Software Engineering Immersion Program. This program was created using HTML, CSS, Javascript, and jQuery.
 
-This simple quiz app is based on the video game Stardew Valley, an open-ended RPG and farming simulator, available on PC (Linux, MacOS, and Windows), console (PS4, Xbox One, and Switch), and mobile (Android and iOS). The app is meant for users to test base knowledge of the game's story.
+---
 
-Future ideas include adding various images to title, question, and results pages and changing the in-quiz scoring element to feature items from the game.
-
-This quiz is (currently) in development, though contributions and suggestions are welcomed.
+This quiz application is based on the video game *Stardew Valley*, an open-ended RPG and farming simulator, available on PC, console, and mobile. The app's purpose is meant to test the user's basic knowledge of the game's story.
 
 Acknowledgments due to Eric Barone (pka ConcernedApe).

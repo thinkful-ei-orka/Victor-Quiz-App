@@ -1,4 +1,11 @@
 /* Your styles should be mobile-first and responsive */
+/** 
+  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
+  *
+  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
+  *
+*/
+
 * {
   padding: 0;
   margin: 0;
@@ -17,7 +24,7 @@ body {
   padding-bottom: 20px;
   height: fit-content;
 } 
-/**/
+
 h2, main, div, section, form {
   display: flex;
   flex-flow: column nowrap;
@@ -43,15 +50,18 @@ main {
   margin: 0 auto;
   width: 90%;
   height: fit-content;
-  padding-bottom: 40px;
   border-radius: 2rem;
   background-color: rgba(244, 244, 244, .95);
   border: rgba(11, 11, 11, .95) solid 3px;
 }
 
-h1, h2, h3 {
+h1, h3 {
   color: black;
   text-align: center;
+}
+
+.center-text {
+text-align: center;
 }
 
 .js-main-screen {
@@ -70,12 +80,13 @@ h1, h2, h3 {
 #js-answer-form {
   height: 100%;
   position: relative;
+  padding-bottom: 50px;
 }
 
 #js-answer-form > h3 {
   position: absolute;
   left: 0;
-  bottom: -18px;
+  bottom: 15px;
 }
 
 h2 {
@@ -103,6 +114,7 @@ button {
 
 .js-question-box {
   height: fit-content;
+  padding: 0px 10px;
 }
 
 .js-answer-eval {
@@ -116,23 +128,24 @@ button {
 .input-container {
   flex-direction: row;
   width: 100%;
-  padding: 3px;
+  padding: 3px 10px;
   border-radius: 2rem;
+  margin: 2px;
 }
 
 input {
-  margin: 5px;
   margin-right: 15px;
+  align-self: center;
 }
 
 label {
   width: 100%;
-  line-height: 1.5rem;
+  line-height: 2rem;
 }
 
 .js-answer-button, .js-continue-button {
   position: absolute;
-  bottom: -30px;
+  bottom: 15px;
   right: 0;
 }
 
@@ -154,74 +167,62 @@ label {
   background-color: rgb(228, 135, 135);
 }
 
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
+
 
 @media screen and (min-width: 750px) {
-main, h1 {
-  width: 670px;
+  main, h1 {
+    width: 670px;
+  }
 }
 
 
-
-
 @media screen and (min-width: 768px) {
-
   body, h3 {
     font-size: 1.5rem;
   }
 
   h1 {
     font-size: 2rem;
-    margin: auto;
-    padding: 10px 0;
+    margin: 20px auto;
+    padding: 20px 0;
   } 
 
-  header {
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
   h2 {
-   font-size: 3rem;
-   padding-top: 10px;
-   line-height: 100%;
+   font-size: 1.8rem;
+   line-height: 2.25rem;
   } 
 
   .js-answer-eval {
     margin: 25px auto;
-    line-height: 2rem;
+    line-height: 1.75rem;
+    padding: 20px 30px;
   }
 
   label {
-    font-size: 1;
-    line-height: 1.4rem;
+    font-size: 1.25rem;
   }
 
   .js-main-screen {
-    width: 90%;
-    height: 90%;
+    padding: 0px 30px;    
   }
 
-.input-container {
-  height: fit-content;
-}
-
   button {
-    padding: 5px 10px;
     min-width: 200px;  
     height: 60px;
-    align-self: flex-end;
+    font-size: 2rem;    
+  }
+
+  #js-answer-form {
+  padding-bottom: 75px;
   }
 
   #js-answer-form > h3 {
-    font-size: 2rem;
+    font-size: 1.25rem;
   }
+
+  /*label, #js-answer-form {
+    font-size: 1.25rem;
+  } */
 
   .js-answer-button, .js-continue-button {
     position: absolute;
@@ -231,37 +232,14 @@ main, h1 {
   .js-end-button, .js-start-button {
     margin: 25px auto;
     align-self: center;
-    height: 100px;
-    font-size: 3rem;
   }
 
   .js-results-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
 
-
+  .js-answer-box {
+    padding: 0;
+  }
 }
-
-  @media screen and (min-width: 1024px){
-    
-    label {
-      line-height: 1.5rem;
-    }
-
-    #js-answer-form > h3 {
-      position: absolute;
-      font-size: 2rem;
-      left: 0;
-    }
-
-    .js-answer-button, .js-continue-button {
-      position: absolute;
-      right: 0;
-      font-size: 2rem;
-    }
-
-    .js-results-text{
-      font-size: 2rem;
-    }
-
-  }
